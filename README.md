@@ -1,8 +1,8 @@
-bueno gente, lo explico **una sola vez** asi no me rompen despues.  
+bueno gente, lo explico **una sola vez** asi no me rompen despues  
 
-si todavía no tienen este proyecto, hagan  
+si todavia no tienen este proyecto, hagan  
 ```
-git clone https://github.com/fludx/SistemaGestion.git
+git clone https://github.com/fludx/SistemaGestion.git  
 (Elegían una ruta para esto, no sean mogólicos. Ej: cd C:\Users\Casa\Desktop\)
 ```
 Y listo, tienen la copia en su compu
