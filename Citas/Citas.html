@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patitas Unidas - Agendar Cita</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="vista">
+  <div class="Imagen">
+  <img src="Imagenes/PatitasUnidas.png" alt="" class="imagen-principal">
+</div>
+  <div class="Titulo">
+    <h1>Patitas Unidas</h1>
+    Agendar Cita para Adopción
+  </div>
+  <header class="navbar">
+  <nav class="menu-contenedor">
+    <ul class="menu-items">
+      <li><a href="#" >
+       <img src="Imagenes/calendario.png" alt="Icono Citas" class="icono-menu">Citas</a></li>
+      <li><a href="#footer">
+       <img src="Imagenes/boton-de-informacion.png" alt="Icono Citas" class="icono-menu" > Nosotros</a></li>
+      <li><a href="#">
+        <img src="Imagenes/perro.png" alt="Icono Citas" class="icono-menu">Perros</a></li>
+      <li><a href="#">
+        <img src="Imagenes/comida-de-perro.png" alt="Icono Citas" class="icono-menu">Tienda</a></li>
+      <li><a href="Login/Login.html" class="boton-login">
+        <img src="Imagenes/acceso.png" alt="Icono Citas" class="icono-menu">Iniciar sesión</a></li>
+    </ul>
+  </nav>
+</header>
+  </div>
+  <div class="Info">
+    <h1 class="si">¿Cómo agendar una visita?</h1>
+   <div class="menu2">
+</div>
+    <div class="Descripcion">
+      <h2>Para conocer a uno de nuestros adorables perros y considerar su adopción, puedes agendar una cita con nosotros. Esto nos permite dedicarte tiempo para que interactúes con el animal de tu interés, conozcas su personalidad y resuelvas cualquier duda. ¡Estamos aquí para ayudarte a encontrar a tu compañero ideal!</h2>
+      <h2>Haz clic en el botón "Solicitar cita" debajo del perro que te interese para iniciar el proceso.</h2>
+    </div>
+  </div>
+  
+  <div class="Perros">
+    <h1>¡¡¡Conoce a nuestros candidatos a adopción y agenda tu cita!!!</h1>
+    
+    <div class="Contenedor-TipoPerros">
+      <div class="TipoPerros">
+       </div>
+  </div>
+
+  <div id="formularioCita" class="Formulario-Cita" style="display: none;">
+    <h2>Agendar Cita para <span id="nombrePerroCita"></span></h2>
+    <div class="Campo-Formulario">
+      <label for="nombre">Tu Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+    </div>
+    <div class="Campo-Formulario">
+      <label for="email">Tu Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="Campo-Formulario">
+      <label for="telefono">Tu Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono">
+    </div>
+    <div class="Campo-Formulario">
+      <label for="fechaCita">Fecha Deseada:</label>
+      <input type="date" id="fechaCita" name="fechaCita" required>
+    </div>
+    <div class="Campo-Formulario">
+      <label for="horaCita">Hora Deseada:</label>
+      <select id="horaCita" name="horaCita">
+        <option value="10:00">10:00</option>
+        <option value="10:30">10:30</option>
+        <option value="11:00">11:00</option>
+        <option value="11:30">11:30</option>
+        <option value="14:00">14:00</option>
+        <option value="14:30">14:30</option>
+        <option value="15:00">15:00</option>
+        <option value="15:30">15:30</option>
+        <option value="16:00">16:00</option>
+        <option value="16:30">16:30</option>
+      </select>
+    </div>
+    <button class="Boton" id="enviarCita">Enviar Solicitud</button>
+    <button class="Boton" id="cerrarFormulario">Cerrar</button>
+    <div id="mensajeCitaEnviada" class="Mensaje" style="display: none;"></div>
+  </div>
+  <footer class="footer" id="footer">
+      <ul class="social-icon">
+        <li class="icon-elem">
+          <a href="" class="icon">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        </li>
+        <li class="icon-elem">
+          <a href="" class="icon">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+        <li class="icon-elem">
+          <a href="" class="icon">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+          </a>
+        </li>
+        <li class="icon-elem">
+          <a href="" class="icon">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+        <li class="icon-elem">
+          <a href="" class="icon">
+            <ion-icon name="mail-outline"></ion-icon>
+          </a>
+        </li>
+      </ul>
+      <ul class="menu">
+        <li class="menu-elem">
+          <a href="" class="menu-icon"> Inicio </a>
+        </li>
+        <li class="menu-elem">
+          <a href="" class="menu-icon"> Equipo </a>
+        </li>
+        <li class="menu-elem">
+          <a href="" class="menu-icon"> Contacto </a>
+        </li>
+        <li class="menu-elem">
+          <a href="" class="menu-icon"> Video </a>
+        </li>
+        <li class="menu-elem">
+          <a href="" class="menu-icon"> Sobre Nosotros </a>
+        </li>
+      </ul>
+      <p class="text">2025 | Todos los derechos reservados</p>
+  </footer>
+      <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+CREATE TABLE Usuarios (
+    Id_Usuario INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    Usuario VARCHAR(12) NOT NULL,
+    Contrasena VARCHAR(255) NOT NULL,
+    CambioContra TINYINT,
+    FechaCambioContra DATETIME
+);
+
+CREATE TABLE HistorialContrasenas (
+    Id_Historial INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    Id_Usuario INT NOT NULL,
+    FechaCambio DATETIME,
+    Contrasena VARCHAR(20),
+    FOREIGN KEY (Id_Usuario) REFERENCES Usuarios(Id_Usuario)
+);
+
+CREATE TABLE Imagen(
+    Id_Imagen INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    Nombre VARCHAR(50),
+    URL VARCHAR(255)
+);
+
+CREATE TABLE Productos (
+    Id_Producto INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    Nombre VARCHAR(100),
+    Cantidad INT,
+    Descripcion VARCHAR(255),
+    Marca VARCHAR(50),
+    Categoria (50),
+    Precio DECIMAL (100, 2),
+    Id_Imagen INT NOT NULL,
+    Fecha_Ven DATETIME,
+    FOREIGN KEY (Id_Imagen) REFERENCES Imagen(Id_Imagen)
+);
+
+CREATE TABLE Carrito (
+    Id_Carrito INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    Id_Imagen INT NOT NULL,
+    Id_Producto INT NOT NULL,
+    FOREIGN KEY (Id_Imagen) REFERENCES Imagen(Id_Imagen),
+    FOREIGN KEY (Id_Producto) REFERENCES Productos(Id_Producto)
+);
+
+
+
+ALTER TABLE Usuarios
+ADD COLUMN Token VARCHAR(6),
+ADD COLUMN TokenVencimiento DATETIME;
+
+//MONGODB//

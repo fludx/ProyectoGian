@@ -1,0 +1,454 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Caveat", cursive;
+}
+html{
+  scroll-behavior: smooth;
+}
+body {
+  
+	background-color:#E7B97E ;
+  }
+
+.info {
+  text-align: center;
+}
+
+.Descripcion {
+  background-color: #f9f9f9; 
+  border-radius: 15px; 
+  padding: 20px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  max-width: 800px; 
+  margin: 0 auto;
+  text-align: center;
+}
+
+.Imagen {
+  display: flex;
+  justify-content: CENTER;
+
+}
+
+.Titulo {
+  text-align: center;
+  font-size: 35px;
+  color: black; 
+  
+  margin-bottom: 20px; 
+}
+.si{ text-align: center;
+  font-size: 30px;
+  color: black; 
+  margin-bottom: 20px; 
+}
+
+.imagen-principal {
+  min-width: 100px;
+  max-width: 450px;
+  border-radius: 50%;
+  border: 20px solid #A18262;
+  margin-top: 2.1rem;
+  transition: transform 0.4s ease; /* ANIMACIÓN suave */
+}
+.imagen-principal:hover{
+transform: scale(1.05);
+}
+
+.Perros {
+  text-align: center;
+  font-size: 25px;
+  color: #000000; 
+  margin-top: 30px; 
+
+
+}
+
+.Contenedor-TipoPerros {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; 
+}
+
+.TipoPerros {
+  width: 60%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  gap: 75px;
+  align-items: center;
+  padding: 20px; 
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 20px; 
+}
+
+.IMGg {
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+  border: 10px;
+  align-content: start;
+  object-fit: cover; 
+}
+
+.TipoPerros > div {
+  text-align: left;
+  max-width: 350px; 
+}
+
+.TipoPerros h2 {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.TipoPerros p {
+  max-width: 300px;
+  color: #777; 
+  line-height: 1.6; 
+  margin-bottom: 15px;
+}
+
+.Boton {
+  font-size: 18px; 
+  padding: 10px 20px; 
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 8px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+a{
+  color: #000000;
+  text-decoration: none;
+}
+
+.Boton:hover {
+  background-color: #4cae4c; /
+}
+
+/* Estilos para el formulario de cita */
+.Formulario-Cita {
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 30px auto;
+  text-align: left;
+  border: 1px solid #ddd; 
+}
+
+.Formulario-Cita h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.Campo-Formulario {
+  margin-bottom: 15px;
+}
+
+.Campo-Formulario label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.Campo-Formulario input[type="text"],
+.Campo-Formulario input[type="email"],
+.Campo-Formulario input[type="tel"],
+.Campo-Formulario input[type="date"],
+.Campo-Formulario select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Caveat", cursive;
+  font-size: 16px;
+}
+
+#enviarCita,
+#cerrarFormulario {
+  margin-top: 15px;
+  padding: 10px 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block; 
+  margin-right: 10px; 
+}
+
+#enviarCita {
+  background-color: #007bff; 
+  color: white;
+}
+
+#enviarCita:hover {
+  background-color: #0056b3;
+}
+
+#cerrarFormulario {
+  background-color: #6c757d; 
+  color: white;
+}
+
+#cerrarFormulario:hover {
+  background-color: #5a6268;
+}
+
+#mensajeCitaEnviada {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#mensajeCitaEnviada.exito {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+#mensajeCitaEnviada.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+
+.vista{
+  background-image: url(Imagenes/PatitasNPequeñas.jpg);
+background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+.navbar {
+  background-color: #A67C52;
+  padding: 25px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-items {
+  list-style: none;
+  display: flex;
+  gap: 50px; /* espacio entre cada ítem */
+  margin: 0;
+  padding: 0;
+}
+
+.menu-items a {
+  position: relative;
+  text-decoration: none;
+  color: #000000;
+  font-size: 28px; /* mucho más grande */
+  font-family: 'Caveat', cursive; /* o la que estés usando */
+  font-weight: 600;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Subrayado animado desde el centro */
+.menu-items a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 3px;
+  background-color: #000000;
+  transition: width 0.4s ease, left 0.4s ease;
+  border-radius: 2px;
+}
+
+.menu-items a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.menu-items a:hover {
+  color: #000000; /* opcional: color más claro al pasar el mouse */
+}
+.navbar {
+  background-color: #A67C52;
+  padding: 25px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-items {
+  list-style: none;
+  display: flex;
+  gap: 10rem; 
+  margin: 0;
+  padding: 0;
+}
+
+.menu-items a {
+  position: relative;
+  text-decoration: none;
+  color: #000000;
+  font-size: 2rem; 
+  font-weight: 600;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Subrayado animado desde el centro */
+.menu-items a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 3px;
+  background-color: #000000;
+  transition: width 0.4s ease, left 0.4s ease;
+  border-radius: 2px;
+}
+
+.menu-items a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.menu-items a:hover {
+  color: #000000; /* opcional: color más claro al pasar el mouse */
+}
+.menu-items li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  text-decoration: none;
+  color: #000000;
+  font-size: 2rem;
+  font-weight: 600;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.menu-items li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 3px;
+  background-color: #000000;
+  transition: width 0.4s ease, left 0.4s ease;
+  border-radius: 2px;
+}
+
+.menu-items li a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.menu-items li a:hover {
+  color: #000000;
+}
+
+.icono-menu {
+  width: 3.2rem;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.menu-items li a:hover .icono-menu {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+ }
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #a67c52 ;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 10px 5px;
+  flex-wrap: wrap;
+}
+.icon-elem {
+  list-style: none;
+}
+.icon {
+  color: white;
+  font-size: 32px;
+  display: inline-block;
+  margin: 0 10px;
+  transition: 0.5s;
+}
+.icon:hover {
+  transform: translateY(-10px);
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+.menu-elem {
+  list-style: none;
+}
+.menu-icon {
+  color: white;
+  font-size: 30px;
+  display: inline-block;
+  text-decoration: none;
+  margin: 5px 10px;
+  opacity: 0.5;
+  transition: 0.3s;
+  justify-content: space-between 20rem;
+}
+
+.menu-icon:hover {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 25px;
+}

@@ -1,0 +1,142 @@
+/* --------- Reset y fuente --------- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Caveat", cursive;
+}
+
+/* --------- Estilo del fondo --------- */
+body {
+  background-image:url(Imagenes/PatitasNPequeñas.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --------- Caja principal del login --------- */
+.Contenedor {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+/* --------- Lado izquierdo: imagen --------- */
+.Imagen {
+  position: relative; /* agregar */
+  background-color: #A18262;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  flex: 1;
+}
+
+.Imagen img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  display: block;
+}
+
+/* --------- Lado derecho: formulario --------- */
+.Formulario {
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* --------- Título --------- */
+.Formulario h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* --------- Campos del formulario --------- */
+.Campo-Formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.Campo-Formulario label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.Campo-Formulario input[type="text"],
+.Campo-Formulario input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Caveat", cursive;
+}
+
+/* --------- Botón de login --------- */
+.Boton {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+a{
+  color: #000000;
+  text-decoration: none;
+}
+
+.Boton-Login:hover {
+  background-color: #0056b3;
+}
+
+/* --------- Mensaje de error --------- */
+.Mensaje-Error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  display: none;
+}
+.Registro{
+  text-align: center;
+}
+.icono-volver {
+  position: absolute;
+  top: 0px;    /* un poco separado del borde */
+  left: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.icono-volver img {
+  width: 35px;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none; /* que el clic pase al enlace */
+}
+.icono-volver:hover{
+transform: scale(1.25);
+}

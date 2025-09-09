@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patitas Unidas - Iniciar Sesión</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <form action="Register.php" method="POST" id="formularioRegister">
+  <div class="Contenedor">
+ <div class="Imagen">
+  <a href="../Citas.html" class="icono-volver" title="Volver a inicio" >
+    <img src="Imagenes/volver.png" alt="Volver" >
+  </a>
+  <img src="Imagenes/Adoptame.jpg" alt="Huella Patitas Unidas" />
+</div>
+    <div class="Formulario">
+      <h1>Registro</h1>
+      <div class="Campo-Formulario">
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="Usuario" required>
+      </div>
+      <div class="Campo-Formulario">
+  <label for="contrasena">Contraseña:</label>
+  <input type="password" id="contrasena" name="Contrasena" required>
+</div>
+<div class="Campo-Formulario">
+  <label for="confirmarContrasena">Confirmar Contraseña:</label>
+  <input type="password" id="confirmarContrasena" name="ConfirmContrasena" required>
+</div>
+      <button class="Boton" id="botonRegistrar">Registrarse</button>
+       </form>
+      <div id="mensajeError" class="Mensaje-Error"></div>
+    </div>
+  </div>
+
+  <script src="Login.js"></script>
+</body>
+</html>
