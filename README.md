@@ -3,7 +3,7 @@ bueno gente, lo explico **una sola vez** asi no me rompen despues
 si todavia no tienen este proyecto, hagan  
 ```
 git clone https://github.com/fludx/ProyectoGian.git
-(Elegían una ruta para esto, no sean mogólicos. Ej: cd C:\Users\Casa\Desktop\)
+(Elijan PRIMERO una ruta para esto, no sean mogólicos. Ej: cd C:\Users\Casa\Desktop\)
 ```
 Y listo, tienen la copia en su compu
 
