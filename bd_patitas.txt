@@ -1,6 +1,7 @@
 CREATE TABLE Usuarios (
     Id_Usuario INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     Usuario VARCHAR(12) NOT NULL,
+    Correo VARCHAR (80) NOT NULL,
     Contrasena VARCHAR(255) NOT NULL,
     CambioContra TINYINT,
     FechaCambioContra DATETIME
@@ -30,6 +31,8 @@ CREATE TABLE Productos (
     Precio DECIMAL (100, 2),
     Id_Imagen INT NOT NULL,
     Fecha_Ven DATETIME,
+    Token VARCHAR(6),
+    TokenVencimiento DATETIME,
     FOREIGN KEY (Id_Imagen) REFERENCES Imagen(Id_Imagen)
 );
 
@@ -42,9 +45,6 @@ CREATE TABLE Carrito (
 );
 
 
-
-ALTER TABLE Usuarios
-ADD COLUMN Token VARCHAR(6),
-ADD COLUMN TokenVencimiento DATETIME;
-
 //MONGODB//
+
+

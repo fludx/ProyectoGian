@@ -1,0 +1,68 @@
+body {
+      background-color: #E7B97E;
+      font-family: "Caveat", cursive;
+      margin: 0;
+      padding: 0;
+    }
+
+    .admin-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .admin-title {
+      font-size: 50px;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .admin-card {
+      font-family: "Bahnschrift";
+      background-color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin: 20px;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .admin-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    h3 {
+      display: block;
+      color: #5cb85c;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .admin-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .volver {
+      margin-top: 40px;
+      font-size: 20px;
+      color: white;
+      background-color: #A67C52;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .volver:hover {
+      background-color: #8a623b;
+    }
