@@ -1,5 +1,11 @@
 bueno gente, lo explico **una sola vez** asi no me rompen despues  
 
+PRIMERO NOS LOGEAMOS  
+```
+git config --global user.name "Your Name"  
+git config --global user.email "your.email@example.com"  
+```
+
 si todavia no tienen este proyecto, hagan  
 ```
 git clone https://github.com/fludx/ProyectoGian.git
