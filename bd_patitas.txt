@@ -3,6 +3,7 @@ CREATE TABLE Usuarios (
     Usuario VARCHAR(12) NOT NULL,
     Correo VARCHAR (80) NOT NULL,
     Contrasena VARCHAR(255) NOT NULL,
+    Rol INT NOT NULL,
     CambioContra TINYINT,
     FechaCambioContra DATETIME
 );
@@ -44,6 +45,25 @@ CREATE TABLE Carrito (
     FOREIGN KEY (Id_Producto) REFERENCES Productos(Id_Producto)
 );
 
+CREATE TABLE Rol (
+    idRol INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
+    descripcion VARCHAR(150)
+);
+
+CREATE TABLE Permiso (
+    idPermiso INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
+    descripcion VARCHAR(150)
+);
+
+CREATE TABLE Rol_Permisos (
+    idRol INT NOT NULL,
+    idPermiso INT NOT NULL,
+    PRIMARY KEY (idRol, idPermiso),
+    FOREIGN KEY (idRol) REFERENCES Rol(idRol),
+    FOREIGN KEY (idPermiso) REFERENCES Permiso(idPermiso)
+);
 
 //MONGODB//
 

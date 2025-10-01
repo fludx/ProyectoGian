@@ -1,0 +1,185 @@
+body {
+  background-color: #E7B97E;
+  font-family: "Caveat", cursive;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+admin-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.productos-layout {
+  display: flex;
+  gap: 8rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.lista-section {
+  flex: 1; 
+}
+
+.admin-card {
+  font-family: "Bahnschrift", sans-serif;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 0.25rem 0.6rem rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+.lista-card {
+  max-width: none;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.admin-form label {
+  font-weight: bold;
+  color: #333;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  resize: none;
+  width: 100%;
+}
+
+.btn-guardar {
+  background-color: #5cb85c;
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 0.8rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-guardar:hover {
+  background-color: #4cae4c;
+}
+
+.tabla-wrapper {
+  overflow-x: visible; 
+}
+
+.tabla-productos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.tabla-productos th,
+.tabla-productos td {
+  border: 1px solid #ccc;
+  padding: 0.8rem;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.tabla-productos th {
+  background-color: #A67C52;
+  color: white;
+}
+
+.btn-accion {
+  padding: 0.4rem 0.8rem;
+  margin: 0.2rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.btn-accion.editar {
+  background-color: #5bc0de;
+}
+
+.btn-accion.eliminar {
+  background-color: #d9534f;
+}
+
+.btn-accion:hover {
+  opacity: 0.85;
+}
+
+.volver {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #A67C52;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.volver:hover {
+  background-color: #8a623b;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .admin-title {
+    font-size: 2.2rem;
+  }
+
+  .productos-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .admin-card {
+    max-width: 100%;
+  }
+
+  .tabla-productos {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-title {
+    font-size: 1.8rem;
+  }
+
+  .btn-guardar {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  .volver {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+}
