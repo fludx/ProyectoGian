@@ -1,0 +1,270 @@
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url('../Imagenes/FondoTienda.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+
+header {
+    background-color: #D2B48C;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    flex-wrap: wrap; 
+    gap: 0.5rem;
+    
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #966b58;
+    object-fit: cover;
+     opacity: 0; 
+     animation: fadeLogo 0.8s ease-out forwards;
+}
+@keyframes fadeLogo {
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+.Menu-Botones {
+    display: flex;
+    align-items: center;
+    gap: 75px;
+    margin-right: 5%;
+  
+}
+
+.boton-menu {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    font-size: 13px;
+    transition: transform 0.2s ease;
+}
+
+.boton-menu img {
+    width: 33px;
+    height: 33px;
+    margin-bottom: 5px;
+}
+
+.boton-menu:hover {
+    transform: scale(1.1);
+}
+
+
+
+@media (max-width: 768px) {
+    .menu_de_tienda {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .buscador {
+        order: 2;
+        width: 100%;
+    }
+    .volver {
+        order: 3;
+        width: 100%;
+    }
+}
+
+.carousel {
+  margin-top: 50px;     
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  height: 400px;
+  margin-left: auto;    
+  margin-right: auto;   
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: 400px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Botones */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #333;
+}
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.titulo-tienda {
+  font-size: 40px;
+  font-weight: bold;
+  color: #333;
+  opacity: 0;             
+  transform: translateY(-20px); 
+  animation: aparecer 1s ease-out forwards;
+  animation-delay: 0.5s;  
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   cursor: default;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateX(0); 
+  }
+}
+
+.categorias-objetos{
+  font-size: 4rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #333;
+  margin-left: 6rem;
+  margin-top: 4rem;
+}
+
+
+.carrito {
+  position: fixed;
+  top: 0;
+  right: -400px;  
+  width: 400px;
+  height: 100%;
+  background: #ffffffde;
+  box-shadow: -4px 0 8px rgba(0,0,0,0.3);
+  transition: right 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  z-index: 999; 
+}
+
+
+.carrito.abierto {
+  right: 0;
+}
+
+
+.carrito-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  
+  
+}
+
+.carrito-header h2 {
+  margin: 0;
+  font-size: 35px;
+  color: #333;
+  cursor: default;
+}
+
+.cerrar-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.carrito-body {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+.boton-menu {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#cerrarCarrito {
+  background: none;       
+  border: none;           
+  font-size: 22px;        
+  cursor: pointer;        
+  color: #333;            
+  line-height: 1;         
+  padding: 0;             
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+#cerrarCarrito:hover {
+  transform: scale(1.2);
+  color: #c00;            
+}

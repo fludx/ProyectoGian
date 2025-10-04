@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="CSS/Tienda.css">
+    <title>Tienda de mascotas</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+        <img src="Imagenes/Perrito.jpg" alt="Logo Tienda" class="logo">
+        <span class="titulo-tienda">Tienda Patitas </span>
+       </div>
+        
+        
+
+<nav class="Menu-Botones">
+
+   
+
+
+    <a href="#" class="boton-menu">
+    <img src="Imagenes/perro-delante-de-un-hombre.png" alt="Volver al menú">
+    <span>Volver al menu</span>
+    </a>
+
+     <button id="btnCarrito" class="boton-menu">
+                <img src="Imagenes/carrito-de-compras.png" alt="Mi carro">
+                <span>Mi carro</span>
+            </button>
+
+
+            
+    <a href="#" class="boton-menu">
+    <img src="Imagenes/avatar.png" alt="Mi cuenta">
+    <span>Mi cuenta</span>
+    </a>
+
+    
+</nav>
+</header>
+
+<div class="carousel">
+  <div class="carousel-track">
+    <div class="carousel-item"><img src="Imagenes/Oferta1.png" alt="Promo 1"></div>
+    <div class="carousel-item"><img src="Imagenes/Oferta2.png" alt="Promo 2"></div>
+    <div class="carousel-item"><img src="Imagenes/Oferta3.png" alt="Promo 3"></div>
+  </div>
+
+  
+  <button class="carousel-btn prev">&#10094;</button>
+  <button class="carousel-btn next">&#10095;</button>
+
+ 
+  <div class="carousel-indicators">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</div>
+<div class="categorias-objetos" id="Categorias">
+Categorías
+
+</div>
+<div class="categorias-objetos" id="Ofeta">
+Ofertas
+
+</div>
+<div class="categorias-objetos" id="Promociones">
+Promociones
+
+</div>
+
+
+<div id="carrito" class="carrito">
+  <div class="carrito-header">
+    <h2>Carrito</h2>
+    <button id="cerrarCarrito">✖</button>
+  </div>
+  <div class="carrito-body">
+    <p>No hay productos todavía.</p>
+  </div>
+
+</div>
+
+  <script src="JS/Tienda.js"></script>
+</body>
+</html>
