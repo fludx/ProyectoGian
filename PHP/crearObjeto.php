@@ -1,42 +1,60 @@
 <?php
-// Connect to the database
+require_once 'conexion.php';
 $conn = conexion();
 
-// Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Get the form data
-  $nombre = $_POST['nombre'];
-  $descripcion = $_POST['descripcion'];
-  $precio = $_POST['precio'];
-  $cantidad = $_POST['cantidad'];
-  $categoriaP = $_POST['categoriaP'];
-  $imagen = $_FILES['imagen'];
-  $categoriaA = $_POST['categoriaA'];
 
-  // Check if an image was uploaded
-  if (!empty($imagen['tmp_name'])) {
-     // Get the image extension
-    $extension = pathinfo($imagen['name'], PATHINFO_EXTENSION);
+    // Obtener los datos del formulario
+    $nombre = $_POST['nombre'];
+    $descripcion = $_POST['descripcion'];
+    $precio = $_POST['precio'];
+    $cantidad = $_POST['cantidad'];
+    $categoria = $_POST['categoria'];
+    $imagen = $_FILES['imagen'];
 
-    // Read the image file into a binary string
-    $imageData = file_get_contents($imagen['tmp_name']);
+    // Verificar si se subió una imagen
+    if (!empty($imagen['tmp_name'])) {
+        $nombreImagen = basename($imagen['name']);
+        $rutaDestino = "../uploads/" . $nombreImagen;
 
-    // Encode the image data in Base64
-    $base64Image = base64_encode($imageData);
+        // Crear carpeta si no existe
+        if (!is_dir("../uploads")) {
+            mkdir("../uploads", 0777, true);
+        }
 
-  // Prepare the SQL query to insert the data into the database
-  $sql = "INSERT INTO Productos (Nombre, Descripcion, Precio, Cantidad, CategoriaObjeto, Id_Imagen, Fecha_Ven, Categoria) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+        // Mover la imagen a la carpeta uploads
+        if (move_uploaded_file($imagen['tmp_name'], $rutaDestino)) {
 
-  // Prepare the statement
-  $stmt = $conn->prepare($sql);
+            // Insertar imagen en la tabla Imagen
+            $sqlImg = "INSERT INTO Imagen (Nombre, URL) VALUES (?, ?)";
+            $stmtImg = $conn->prepare($sqlImg);
+            $stmtImg->bind_param("ss", $nombreImagen, $rutaDestino);
+            $stmtImg->execute();
+            $idImagen = $stmtImg->insert_id;
 
-  // Execute the query with the form data
-  $stmt->execute([$nombre, $descripcion, $precio, $cantidad, $categoriaP, $base64Image, $categoriaA]);
+            // Insertar producto en la tabla Productos
+            $sqlProd = "INSERT INTO Productos (Nombre, Cantidad, Descripcion, Marca, Categoria, Precio, Id_Imagen, Fecha_Ven) 
+                        VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
+            $marca = "Sin marca"; // puedes cambiarlo según tus necesidades
 
-  // Close the database connection
-  mysqli_close($conn);
-  }
+            $stmtProd = $conn->prepare($sqlProd);
+            $stmtProd->bind_param("sisssdi", $nombre, $cantidad, $descripcion, $marca, $categoria, $precio, $idImagen);
+
+            if ($stmtProd->execute()) {
+                echo "Producto agregado correctamente";
+            } else {
+                echo "Error al agregar el producto: " . $stmtProd->error;
+            }
+
+            $stmtProd->close();
+            $stmtImg->close();
+        } else {
+            echo "Error al mover la imagen al servidor.";
+        }
+    } else {
+        echo "No se ha subido ninguna imagen.";
+    }
 }
 
-
+$conn->close();
 ?>

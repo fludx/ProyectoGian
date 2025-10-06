@@ -12,13 +12,13 @@
 <body>
   <div class="admin-container productos-container">
     <h1 class="admin-title">Gestión de Productos</h1>
-      <!-- ACA SE AGREGAN COSAS -->
     <div class="productos-layout">
 
+      <!-- Sección original: Formulario para agregar producto -->
       <section class="form-section">
         <div class="admin-card form-card">
           <h2>Agregar Producto</h2>
-          <form class="admin-form" action="#" method="POST" enctype="multipart/form-data">
+          <form class="admin-form" action="../../PHP/crearObjeto.php" method="POST" enctype="multipart/form-data">
             <label for="nombre">Nombre del producto:</label>
             <input type="text" id="nombre" name="nombre" required>
 
@@ -47,31 +47,69 @@
         </div>
       </section>
 
-      <section class="lista-section">
-        <!-- ACA SE CAMBIAN COSAS -->
-        <div class="admin-card lista-card">
-          <h2>Productos Existentes</h2>
-          <div class="tabla-wrapper">
-            <table class="tabla-productos">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Descripción</th>
-                  <th>Precio</th>
-                  <th>Cantidad</th>
-                  <th>Categoría</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody id="productos-lista">
-                </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
+       <section class="lista-section">
+  <div class="admin-card lista-card">
+    <h2>Productos Existentes</h2>
+    <div class="tabla-wrapper">
+      <table class="tabla-productos">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="productos-lista"></tbody>
+      </table>
     </div>
-    <a href="admin.html" class="volver">Volver al Panel</a>
   </div>
+</section>
+
+<!-- Modal para editar producto -->
+<div id="modal-editar" class="modal">
+  <div class="modal-content">
+    <h3>Editar Producto</h3>
+    <form id="form-editar" enctype="multipart/form-data">
+      <input type="hidden" id="edit-id">
+      <label>Nombre:</label>
+      <input type="text" id="edit-nombre" required>
+
+      <label>Descripción:</label>
+      <textarea id="edit-descripcion" required></textarea>
+
+      <label>Precio:</label>
+      <input type="number" id="edit-precio" step="0.01" required>
+
+      <label>Cantidad:</label>
+      <input type="number" id="edit-cantidad" required>
+
+      <label>Categoría:</label>
+      <select id="edit-categoria" required>
+        <option value="" hidden>Seleccione una categoría</option>
+        <option value="accesorios">Cucheta</option>
+        <option value="juguetes">Juguetes</option>
+        <option value="comida">Comida</option>
+      </select>
+
+      <label>Imagen:</label>
+      <input type="file" id="edit-imagen" accept="image/*">
+
+      <div class="modal-buttons">
+        <button type="submit" class="btn-guardar">Guardar cambios</button>
+        <button type="button" class="btn-cerrar" onclick="cerrarModal()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+    <a href="../admin/index.html" class="volver">Volver al Panel</a>
+  </div>
+
+  <!-- Script externo -->
+  <script src="script.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@ body {
   text-align: center;
 }
 
-admin-title {
+.admin-title {
   font-size: 3rem;
   margin-bottom: 2rem;
   color: #333;
@@ -148,38 +148,106 @@ admin-title {
   background-color: #8a623b;
 }
 
-/* 📱 Responsive */
+/* Miniatura de la imagen en la tabla */
+.miniatura {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 0.4rem;
+}
+
+/* Modal de edición */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+  animation: fadeInModal 0.3s ease;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: #A67C52;
+  margin-bottom: 1rem;
+}
+
+.modal-content label {
+  font-weight: bold;
+  display: block;
+  margin-top: 0.8rem;
+  color: #333;
+  text-align: left;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.3rem;
+  border-radius: 0.6rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.modal-buttons .btn-guardar {
+  background-color: #5cb85c;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+}
+
+.modal-buttons .btn-cerrar {
+  background-color: #d9534f;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-buttons .btn-cerrar:hover {
+  background-color: #c9302c;
+}
+
+/* Animación de aparición */
+@keyframes fadeInModal {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .admin-title {
-    font-size: 2.2rem;
-  }
-
-  .productos-layout {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .admin-card {
-    max-width: 100%;
-  }
-
-  .tabla-productos {
-    font-size: 0.9rem;
-  }
+  .admin-title { font-size: 2.2rem; }
+  .productos-layout { flex-direction: column; align-items: center; }
+  .admin-card { max-width: 100%; }
+  .tabla-productos { font-size: 0.9rem; }
+  .modal-content { width: 95%; padding: 1.5rem; }
 }
 
 @media (max-width: 480px) {
-  .admin-title {
-    font-size: 1.8rem;
-  }
-
-  .btn-guardar {
-    font-size: 1rem;
-    padding: 0.7rem;
-  }
-
-  .volver {
-    font-size: 1rem;
-    padding: 0.6rem 1rem;
-  }
+  .admin-title { font-size: 1.8rem; }
+  .btn-guardar { font-size: 1rem; padding: 0.7rem; }
+  .volver { font-size: 1rem; padding: 0.6rem 1rem; }
+  .modal-content { font-size: 0.9rem; }
 }
