@@ -27,8 +27,8 @@ CREATE TABLE Productos (
     Nombre VARCHAR(100),
     Cantidad INT,
     Descripcion VARCHAR(255),
-    Categoria (50),
-    Precio DECIMAL (100, 2),
+    Categoria VARCHAR(50),
+    Precio DECIMAL (65, 2),
     Id_Imagen INT NOT NULL,
     Token VARCHAR(6),
     TokenVencimiento DATETIME,
@@ -63,6 +63,5 @@ CREATE TABLE Rol_Permisos (
     FOREIGN KEY (idPermiso) REFERENCES Permiso(idPermiso)
 );
 
-//MONGODB//
 
 
