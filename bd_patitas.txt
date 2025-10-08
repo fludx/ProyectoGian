@@ -27,11 +27,9 @@ CREATE TABLE Productos (
     Nombre VARCHAR(100),
     Cantidad INT,
     Descripcion VARCHAR(255),
-    Marca VARCHAR(50),
     Categoria (50),
     Precio DECIMAL (100, 2),
     Id_Imagen INT NOT NULL,
-    Fecha_Ven DATETIME,
     Token VARCHAR(6),
     TokenVencimiento DATETIME,
     FOREIGN KEY (Id_Imagen) REFERENCES Imagen(Id_Imagen)
