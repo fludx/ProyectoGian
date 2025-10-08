@@ -1,30 +1,25 @@
 <?php
 header('Content-Type: application/json');
-include 'conexion.php';
+require_once 'conexion.php';
 
 $conn = conexion();
+if (!$conn) {
+    echo json_encode(['error' => 'Error de conexión']);
+    exit;
+}
 
-try {
-    // Consulta productos y la imagen asociada
-    $sql = "SELECT p.Id_Producto AS id, p.Nombre AS nombre, p.Descripcion AS descripcion, 
-                   p.Precio AS precio, p.Cantidad AS cantidad, p.Categoria AS categoria, 
-                   i.URL AS imagen
-            FROM Productos p
-            LEFT JOIN Imagen i ON p.Id_Imagen = i.Id_Imagen";
-    $stmt = $conn->prepare($sql);
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+if ($id > 0) {
+    $stmt = $conn->prepare("SELECT Id_Producto AS id, Nombre AS nombre, Descripcion AS descripcion, Precio AS precio, Cantidad AS cantidad, Categoria AS categoria FROM Productos WHERE Id_Producto = ?");
+    $stmt->bind_param("i", $id);
     $stmt->execute();
-    $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Si no hay imagen, asignar placeholder
-    foreach($productos as &$p) {
-        if(empty($p['imagen'])){
-            $p['imagen'] = 'https://via.placeholder.com/50';
-        }
-    }
-
+    $result = $stmt->get_result();
+    $productos = $result->fetch_all(MYSQLI_ASSOC);
     echo json_encode($productos);
-
-} catch (Exception $e) {
+} else {
     echo json_encode([]);
 }
+
+$conn->close();
 ?>
