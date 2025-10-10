@@ -11,3 +11,7 @@ document.getElementById('formularioRegister').addEventListener('submit', functio
     mensajeError.textContent = ''; // Limpia el mensaje si coincide
   }
 });
+
+if (data.status === "ok") {
+    window.location.href = "Tienda.html";
+}

@@ -4,34 +4,40 @@ document.addEventListener('DOMContentLoaded', function() {
   const contrasenaInput = document.getElementById('contrasena');
   const mensajeErrorDiv = document.getElementById('mensajeError');
 
-  botonIniciarSesion.addEventListener('click', function(event) {
-    event.preventDefault(); // Evita la recarga de la página
+  botonIniciarSesion.addEventListener('click', async function(event) {
+    event.preventDefault();
 
-    const usuario = usuarioInput.value;
-    const contrasena = contrasenaInput.value;
+    const usuario = usuarioInput.value.trim();
+    const contrasena = contrasenaInput.value.trim();
 
-    if (usuario === 'patitas' && contrasena === 'unidas') {
-      // Redirigir a la página principal o a otra página protegida
-      window.location.href = 'index.html'; // Cambia 'index.html' por la página principal
-    } else {
-      mensajeErrorDiv.textContent = 'Usuario o contraseña incorrectos.';
-      mensajeErrorDiv.style.display = 'block';
-      setTimeout(() => {
-        mensajeErrorDiv.style.display = 'none';
-      }, 2500); // Ocultar el mensaje después de 3 segundos
+    if (usuario === "" || contrasena === "") {
+      mostrarError("Debes completar ambos campos.");
+      return;
+    }
+
+    try {
+      const respuesta = await fetch("login.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `Usuario=${encodeURIComponent(usuario)}&Contrasena=${encodeURIComponent(contrasena)}`
+      });
+
+      const data = await respuesta.json();
+
+      if (data.status === "ok") {
+        // Redirige al index solo si el login es correcto
+        window.location.href = "index.html";
+      } else {
+        mostrarError(data.message);
+      }
+    } catch (error) {
+      mostrarError("Error en el servidor: " + error.message);
     }
   });
-});
-document.getElementById('formularioRegister').addEventListener('submit', function(event) {
-  const contrasena = document.getElementById('contrasena').value;
-  const confirmarContrasena = document.getElementById('confirmarContrasena').value;
-  const mensajeError = document.getElementById('mensajeError');
 
-  if (contrasena !== confirmarContrasena) {
-    event.preventDefault(); // Evita que se envíe el formulario
-    mensajeError.textContent = "Las contraseñas no coinciden.";
-    mensajeError.style.color = 'red';
-  } else {
-    mensajeError.textContent = ''; // Limpia el mensaje si coincide
+  function mostrarError(mensaje) {
+    mensajeErrorDiv.textContent = mensaje;
+    mensajeErrorDiv.style.display = 'block';
+    setTimeout(() => mensajeErrorDiv.style.display = 'none', 2500);
   }
 });

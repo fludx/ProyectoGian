@@ -1,42 +1,38 @@
 <?php
 require_once "conexion.php";
+session_start();
 
 $conn = conexion();
 
 $usuario = $_POST["Usuario"];
-$password = $_POST["Contrasena"];
+$contrasena = $_POST["Contrasena"];
 
-// Escapar los parámetros para evitar inyecciones (aunque lo ideal sería usar prepared statements)
-$email = mysqli_real_escape_string($conn, $usuario);
+// Llamamos al procedimiento que devuelve los datos del usuario
+$sql = "CALL login_usuario(?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $usuario);
+$stmt->execute();
 
-// Llamar al procedimiento almacenado
-$sql = "CALL login_usuario('$usuario')";
-$result = mysqli_query($conn, $sql);
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
 
-// Verificar que la consulta se haya ejecutado correctamente
-if ($result) {
-    if ($user = mysqli_fetch_assoc($result)) {
-        // Verificar la contraseña
-        if (password_verify($password, $user['Contrasena'])) {
-            session_start();
-            $_SESSION['usuario_id'] = $user['Id_Usuario'];
-            $_SESSION['usuario_nombre'] = $user['Usuario'];
-            echo "Bienvenido, " . htmlspecialchars($user['Usuario']);
-        } else {
-            echo "Credenciales inválidas.";
-        }
-    } else {
-        echo "Usuario no encontrado.";
-    }
+if ($user && password_verify($contrasena, $user['Contrasena'])) {
+    // Guardamos los datos del usuario en la sesión
+    $_SESSION['usuario_id'] = $user['Id_Usuario'];
+    $_SESSION['usuario_nombre'] = $user['Usuario'];
 
-    // Liberar el resultado si es válido
-    if ($result instanceof mysqli_result) {
-        mysqli_free_result($result);
-    }
+    echo json_encode([
+        "status" => "ok",
+        "message" => "Inicio de sesión exitoso",
+        "usuario" => $user['Usuario']
+    ]);
 } else {
-    // Mostrar el error en la consulta
-    echo "Error en la consulta SQL: " . mysqli_error($conn);
+    echo json_encode([
+        "status" => "error",
+        "message" => "Usuario o contraseña incorrectos"
+    ]);
 }
 
-mysqli_close($conn);
+$stmt->close();
+$conn->close();
 ?>
